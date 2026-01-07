@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>グループカレンダー</title>
+    <!-- GoogleFont読み込み -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>グループカレンダー</h1>
+        <button>ログイン</button>
+    </div>
+    <hr>
+    <div class="main">
+        <div class="content">
+            <div class="schedule-input">
+                <form action="">
+                    <div class="schedule-input-schedule">
+                        <input type="text" name="" id="" placeholder="予定を入力">
+                    </div>
+                    <div class="scheduke-input-date">
+                        <input type="date" name="" id="">
+                        <input type="datetime" name="" id="">
+                        ～
+                        <input type="datetime" name="" id="">
+                        <input type="date" name="" id="">
+                    </div>
+                    <div class="schedule-input-addCalender">
+                        <input type="checkbox" name="" id="">自分のカレンダー
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div class="calender">
+                <div class="calender-tub">
+                    <input type="checkbox" name="" id="">Myカレンダー
+                    <input type="checkbox" name="" id="">学校用
+                    <button>新規追加</button>
+                </div>
+                <div class="month">
+                    <button id="pre_month"><span class="material-symbols-outlined">
+                            chevron_left
+                        </span></button>
+                    <span id="current-month"></span>
+                    <button id="next_month"><span class="material-symbols-outlined">
+                            chevron_right
+                        </span></button>
+                </div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>
+                                <p class="weekday">日</p>
+                            </td>
+                            <td>
+                                <p class="weekday">月</p>
+                            </td>
+                            <td>
+                                <p class="weekday">火</p>
+                            </td>
+                            <td>
+                                <p class="weekday">水</p>
+                            </td>
+                            <td>
+                                <p class="weekday">木</p>
+                            </td>
+                            <td>
+                                <p class="weekday">金</p>
+                            </td>
+                            <td>
+                                <p class="weekday">土</p>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="schedule">
+            <div class="schedule-date">
+                <h3>1月7日</h3>
+                <p>とくになし</p>
+            </div>
+            <hr>
+            <div class="schedule-date">
+                <h3>1月8日</h3>
+                <p>とくになし</p>
+            </div>
+            <hr>
+            <div class="schedule-date">
+                <h3>1月9日</h3>
+                <p>とくになし</p>
+            </div>
+            <hr>
+            <div class="schedule-date">
+                <h3>1月10日</h3>
+                <p>とくになし</p>
+            </div>
+            <hr>
+            <div class="schedule-date">
+                <h3>1月11日</h3>
+                <p>とくになし</p>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- JS読み込み -->
+    <script src="main.js"></script>
+</body>
+
+</html>
