@@ -129,9 +129,10 @@ $(document).on("click", ".calender-content", function () {
     const start = $(this).data("start") || ""
     const end = $(this).data("end") || ""
     $(".schedule-detail").append(`
-        <p>${date}</p>
+        <h3>${date}</h3>
         <p>${start}〜${end}</p>
         <p>${title}</p>
+        // <button>編集</button><button>削除</button>
         `)
 });
 
