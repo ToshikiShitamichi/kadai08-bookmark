@@ -72,8 +72,12 @@ function create_table(target_day, schedules) {
         const schedule_time_start = schedule.schedule_start.substring(11, 16)
         const schedule_time_end = schedule.schedule_end.substring(11, 16)
 
-        // カレンダーに予定を追加
-        $(`#${schedule_date}`).append(`
+        let current_length = $(`#${schedule_date}`).children(".calender-content").length;
+        console.log(current_length);
+
+        if (current_length < 2) {
+            // カレンダーに予定を追加
+            $(`#${schedule_date}`).append(`
             <p class="calender-content"
                data-title="${schedule.schedule_title}"
                data-date="${schedule_date}"
@@ -82,6 +86,12 @@ function create_table(target_day, schedules) {
                ${schedule_time_start}- ${schedule.schedule_title}
             </p>
         `);
+        } else if (current_length == 2) {
+
+            $(`#${schedule_date}`).append(`
+            <p class="calender-content" style="pointer-events: none;">...</p>
+        `);
+        }
         // 取得した予定が今日以降の場合
         if (schedule_date >= today_string) {
             // 前回の日付と同日じゃない場合

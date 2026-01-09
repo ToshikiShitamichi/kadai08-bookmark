@@ -15,7 +15,6 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,24 +32,36 @@ body {
 
 .schedule-input {
     width: 100%;
-    height: 20%;
+    height: 15%;
 }
 
 .calender {
     width: 100%;
     height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .calender-month {
+    width: 100%;
+    height: 8%;
+
     display: flex;
     justify-content: space-around;
 }
 
-.calender-select {}
+.calender-select {
+    width: 100%;
+    height: 8%;
+}
 
 .calender-table {
     width: 95%;
-    height: 90%;
+    height: 80%;
 
     table-layout: fixed;
     border-collapse: collapse;
@@ -69,8 +80,8 @@ body {
 }
 
 .calender-td {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .weekday th {
@@ -113,13 +124,12 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .login-area {
     width: 100%;
-    height: 10%;
+    height: 8%;
 }
 
 .schedule {
