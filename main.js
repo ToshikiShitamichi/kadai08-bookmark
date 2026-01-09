@@ -68,15 +68,20 @@ function create_table(target_day, schedules) {
     let current_day = ""
     // 保存された予定１件ずつ取得
     schedules.forEach(schedule => {
-        let schedule_date = schedule.schedule_start.substring(0, 10)
-        let schedule_time_start = schedule.schedule_start.substring(11, 16)
-        let schedule_time_end = schedule.schedule_end.substring(11, 16)
-
+        const schedule_date = schedule.schedule_start.substring(0, 10)
+        const schedule_time_start = schedule.schedule_start.substring(11, 16)
+        const schedule_time_end = schedule.schedule_end.substring(11, 16)
 
         // カレンダーに予定を追加
         $(`#${schedule_date}`).append(`
-            <p class="calender-content">${schedule_time_start}- ${schedule.schedule_title}</p>
-            `);
+            <p class="calender-content"
+               data-title="${schedule.schedule_title}"
+               data-date="${schedule_date}"
+               data-start="${schedule_time_start}"
+               data-end="${schedule_time_end}">
+               ${schedule_time_start}- ${schedule.schedule_title}
+            </p>
+        `);
         // 取得した予定が今日以降の場合
         if (schedule_date >= today_string) {
             // 前回の日付と同日じゃない場合
@@ -92,7 +97,13 @@ function create_table(target_day, schedules) {
             // サイドバーに予定を追加
             $(`#${sidebar_id}`).append(`
                 <div class="schedule-day">
-                    <p><small>${schedule_time_start}-${schedule_time_end}</small>  ${schedule.schedule_title}</p>
+                    <p class="schedule-content"
+                       data-title="${schedule.schedule_title}"
+                       data-date="${schedule_date}"
+                       data-start="${schedule_time_start}"
+                       data-end="${schedule_time_end}">
+                       <small>${schedule_time_start}-${schedule_time_end}</small>  ${schedule.schedule_title}
+                    </p>
                 </div>
             `);
         }
@@ -100,6 +111,19 @@ function create_table(target_day, schedules) {
         current_day = schedule_date
     });
 }
+
+$(document).on("click", ".calender-content", function () {
+    $(".schedule-detail").html("");
+    const title = $(this).data("title") || ""
+    const date = $(this).data("date") || ""
+    const start = $(this).data("start") || ""
+    const end = $(this).data("end") || ""
+    $(".schedule-detail").append(`
+        <p>${date}</p>
+        <p>${start}〜${end}</p>
+        <p>${title}</p>
+        `)
+});
 
 // アクセス時に今月のカレンダーを作成
 $(window).on("load", function () {

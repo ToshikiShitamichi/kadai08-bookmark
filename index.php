@@ -93,31 +93,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <img src="./google.svg" alt="">
             </div> -->
             <div class="schedule">
-                <div class="schedule-day">
-                    <h3>1月9日</h3>
-                    <p>特になし</p>
-                </div>
-                <hr>
-                <div class="schedule-day">
-                    <h3>1月9日</h3>
-                    <p>特になし</p>
-                </div>
-                <hr>
-                <div class="schedule-day">
-                    <h3>1月9日</h3>
-                    <p>特になし</p>
-                </div>
-                <hr>
-                <div class="schedule-day">
-                    <h3>1月9日</h3>
-                    <p>特になし</p>
-                </div>
-                <hr>
-                <div class="schedule-day">
-                    <h3>1月9日</h3>
-                    <p>特になし</p>
-                </div>
-                <hr>
+            </div>
+            <div class="schedule-detail">
             </div>
         </div>
     </div>
