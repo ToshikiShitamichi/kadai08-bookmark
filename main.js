@@ -5,6 +5,10 @@ const today_string = `${today.getFullYear()}-${(String(today.getMonth() + 1)).pa
 let current_day = ""
 let schedules = ""
 
+
+function toYMD(date) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`
+}
 /**
  * 基準日に沿ってカレンダーを表示する関数
  * @param {Date} target_day カレンダー作成基準日
@@ -46,7 +50,7 @@ function create_table(target_day, schedules) {
                 // 日付idを変数として保存
                 set_id = `${target_day.getFullYear()}-${(target_day.getMonth() + 1).toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`
                 // 追加するHTML要素の作成
-                table_h += `<td id="${set_id}">${day}</td>`
+                table_h += `<td class="calender-td ${today_class}" id="${set_id}">${day}</td>`
                 day++
             }
         }
@@ -64,14 +68,14 @@ function create_table(target_day, schedules) {
     let current_day = ""
     // 保存された予定１件ずつ取得
     schedules.forEach(schedule => {
-        let schedule_date = schedule.schedule_start.substring(0,10)
-        let schedule_time_start = schedule.schedule_start.substring(11,16)
-        let schedule_time_end = schedule.schedule_end.substring(11,16)
+        let schedule_date = schedule.schedule_start.substring(0, 10)
+        let schedule_time_start = schedule.schedule_start.substring(11, 16)
+        let schedule_time_end = schedule.schedule_end.substring(11, 16)
 
 
         // カレンダーに予定を追加
         $(`#${schedule_date}`).append(`
-            <p class="schedule-content">${schedule_time_start}- ${schedule.schedule_title}</p>
+            <p class="calender-content">${schedule_time_start}- ${schedule.schedule_title}</p>
             `);
         // 取得した予定が今日以降の場合
         if (schedule_date >= today_string) {
@@ -81,7 +85,7 @@ function create_table(target_day, schedules) {
                 sidebar_id = `side-${schedule_date}`
                 $(".schedule").append(`
                     <div class="schedule-day" id="${sidebar_id}">
-                        <h3 class="sidebar-date">${schedule_date}</p>
+                        <h3 class="sidebar-date">${schedule_date}</h3>
                     </div>
                 `);
             }
